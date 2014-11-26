@@ -17,7 +17,7 @@ if __name__=="__main__":
     fixer.replaceNonstandardResidues()
     fixer.findMissingAtoms()
     fixer.addMissingAtoms()
-    fixer.removeHeterogens(True)
+    fixer.removeHeterogens(keepWater=False)
     PDBFile.writeFile(fixer.topology, fixer.positions, open('pdbfixed_4L8G.pdb','w'))
     traj = md.load('pdbfixed_4L8G.pdb')
     sasa = md.shrake_rupley(traj)[0]
